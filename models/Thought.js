@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const reactionSchema = require('./Reaction')
 
 const thoughtSchema = new Schema(
   {
@@ -11,7 +12,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-      get: (v) => `${v.getMonth() + 1}-${v.getDate()}1${v.getFullYear()}`,
+      get: (v) => {return `here we go`},
     },
     username: {
       type: String,
