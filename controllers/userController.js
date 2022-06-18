@@ -22,7 +22,6 @@ module.exports = {
       });
   },
   createUser(req, res) {
-    console.log(req.body)
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
@@ -53,7 +52,6 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   addFriend(req, res) {
-    console.log('You are adding a friend');
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $addToSet: { friends: req.params.friendId } },
@@ -69,7 +67,6 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   removeFriend(req, res) {
-    console.log(req.params)
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $pull: { friends: req.params.friendId} },

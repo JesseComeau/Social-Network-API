@@ -21,7 +21,6 @@ module.exports = {
     },
     // createThought
     createThought(req, res) {
-        console.log(req.body)
         Thought.create(req.body)
             .then((thought) => {
                 return User.findOneAndUpdate(
@@ -61,7 +60,6 @@ module.exports = {
     },
     // deleteThought
     deleteThought(req, res) {
-        console.log()
         Thought.findOneAndRemove({ _id: req.params.thoughtId })
             .then((thought) =>
                 !thought
@@ -87,7 +85,6 @@ module.exports = {
 
     // deleteReaction
     deleteReaction(req, res) {
-        console.log(req.body)
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $pull: { reactions: { reactionId: req.params.reactionId} } },
