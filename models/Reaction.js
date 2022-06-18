@@ -4,6 +4,7 @@ const reactionSchema = new Schema(
   {
     reactionId: {
       type: Schema.Types.ObjectId,
+      unique: true,
       default: () => new Types.ObjectId(),
     },
     reactionBody: {
@@ -18,7 +19,7 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (v) => `${v.getMonth() + 1}-${v.getDate()}1${v.getFullYear()}`,
+      get: (formatDate) => `${formatDate.toLocaleDateString()} ${formatDate.toLocaleTimeString()}`
     },
   },
   {
