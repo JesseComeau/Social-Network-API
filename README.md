@@ -1,5 +1,5 @@
 # Social-Network-API
-Bootcamp - Phase 2 - Week 18 Homework
+Bootcamp - Phase 3 - Week 18 Homework
 
 ## Description
 
